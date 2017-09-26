@@ -1,0 +1,69 @@
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteRule ^wp-content/plugins/spiderblocker/index.php /index.php%{REQUEST_URI} [QSA,L]
+RewriteRule ^wp-content/plugins/spiderblocker/readme.txt /index.php%{REQUEST_URI} [QSA,L]
+RewriteRule ^wp-content/plugins/spiderblocker/ /index.php%{REQUEST_URI} [QSA,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+
+# BEGIN NiteowebSpiderBlocker
+SetEnvIfNoCase User-Agent "AhrefsBot" block_bot
+SetEnvIfNoCase User-Agent "MJ12bot" block_bot
+SetEnvIfNoCase User-Agent "Rogerbot" block_bot
+SetEnvIfNoCase User-Agent "SemrushBot" block_bot
+SetEnvIfNoCase User-Agent "ia_archiver" block_bot
+SetEnvIfNoCase User-Agent "ScoutJet" block_bot
+SetEnvIfNoCase User-Agent "sistrix" block_bot
+SetEnvIfNoCase User-Agent "SearchmetricsBot" block_bot
+SetEnvIfNoCase User-Agent "SEOkicks-Robot" block_bot
+SetEnvIfNoCase User-Agent "Lipperhey Spider" block_bot
+SetEnvIfNoCase User-Agent "Exabot" block_bot
+SetEnvIfNoCase User-Agent "NCBot" block_bot
+SetEnvIfNoCase User-Agent "BacklinkCrawler" block_bot
+SetEnvIfNoCase User-Agent "archive.org_bot" block_bot
+SetEnvIfNoCase User-Agent "meanpathbot" block_bot
+SetEnvIfNoCase User-Agent "PagesInventory" block_bot
+SetEnvIfNoCase User-Agent "Aboundexbot" block_bot
+SetEnvIfNoCase User-Agent "spbot" block_bot
+SetEnvIfNoCase User-Agent "linkdexbot" block_bot
+SetEnvIfNoCase User-Agent "Gigabot" block_bot
+SetEnvIfNoCase User-Agent "dotbot" block_bot
+SetEnvIfNoCase User-Agent "Nutch" block_bot
+SetEnvIfNoCase User-Agent "BLEXBot" block_bot
+SetEnvIfNoCase User-Agent "Ezooms" block_bot
+SetEnvIfNoCase User-Agent "Majestic-12" block_bot
+SetEnvIfNoCase User-Agent "Majestic-SEO" block_bot
+SetEnvIfNoCase User-Agent "DSearch" block_bot
+SetEnvIfNoCase User-Agent "BlekkoBot" block_bot
+SetEnvIfNoCase User-Agent "Yandex" block_bot
+SetEnvIfNoCase User-Agent "trendiction" block_bot
+SetEnvIfNoCase User-Agent "CCBot" block_bot
+SetEnvIfNoCase User-Agent "Sogou" block_bot
+SetEnvIfNoCase User-Agent "sogou" block_bot
+SetEnvIfNoCase User-Agent "sogo" block_bot
+SetEnvIfNoCase User-Agent "megaindex" block_bot
+SetEnvIfNoCase User-Agent "siteexplorer" block_bot
+SetEnvIfNoCase User-Agent "sogou" block_bot
+SetEnvIfNoCase User-Agent "Yisou" block_bot
+SetEnvIfNoCase User-Agent "Etao" block_bot
+SetEnvIfNoCase User-Agent "Easou" block_bot
+SetEnvIfNoCase User-Agent "NerdyBot" block_bot
+SetEnvIfNoCase User-Agent "JamesBOT" block_bot
+SetEnvIfNoCase User-Agent "TinEye" block_bot
+SetEnvIfNoCase User-Agent "Baiduspider" block_bot
+SetEnvIfNoCase User-Agent "serpstat" block_bot
+SetEnvIfNoCase User-Agent "spyfu" block_bot
+<Limit GET POST HEAD>
+Order Allow,Deny
+Allow from all
+Deny from env=block_bot
+</Limit>
+# END NiteowebSpiderBlocker
